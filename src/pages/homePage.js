@@ -24,10 +24,14 @@ const HomePage = (props) => {
 
   return (
     <PageTemplate
-      title='Discover Movies'
+      title="Discover Movies"
       movies={movies}
-      selectFavourite={addToFavourites}
+      action={(movie) => {
+        return <AddToFavouritesIcon movie={movie} />
+      }}
     />
-  );
+);
 };
+
+
 export default HomePage;
