@@ -2,10 +2,11 @@ import React from "react";
 import {createRoot} from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
-import MoviePage from "./pages/movieDetailsPage";
+import MovieDetailsPage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
+import MovieUpcomingPage from "./pages/movieUpcomingPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -30,13 +31,15 @@ const App = () => {
           <SiteHeader />
           <MoviesContextProvider>
           <Routes>
-            <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-            <Route path="/movies/upcoming" element={<MoviePage/>} />            
-            <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-            <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
-            <Route path="/movies/:id" element={<MoviePage />} />
+            
+            <Route path="/movies/:id" element={<MovieDetailsPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={ <Navigate to="/" /> } />
+            <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
+            <Route path="/movies/upcoming" element={<MovieUpcomingPage/>} />            
+            <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
+            <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+            
             
           </Routes>
           </MoviesContextProvider>
