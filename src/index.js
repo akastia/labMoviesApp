@@ -8,9 +8,22 @@ import {Link} from 'react-router-dom'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import MovieUpcomingPage from "./pages/movieUpcomingPage";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000, 
+      refetchOnWindowFocus: false
+    },
+  },
+});
 
 const App = () => {
   return (
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
           <SiteHeader />
           <Routes>
@@ -23,6 +36,8 @@ const App = () => {
             
           </Routes>
         </BrowserRouter>
+        <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
