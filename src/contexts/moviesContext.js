@@ -15,14 +15,6 @@ const MoviesContextProvider = (props) => {
     setFavourites(newFavourites);
   };
 
-  const addToPlaylists = (movie) => {
-    let newPlaylist = [...playlist];
-    if (!playlist.includes(movie.id)) {
-      newPlaylist.push(movie.id);
-    }
-    setPlaylist(newPlaylist);
-  };
-
   // We will use this function in a later section
   const removeFromFavourites = (movie) => {
     setFavourites( favourites.filter(
@@ -34,6 +26,15 @@ const MoviesContextProvider = (props) => {
     setMyReviews( {...myReviews, [movie.id]: review } )
   };
 
+  const addToPlaylist = (movie) => {
+    let newPlaylist = [...playlist];
+    if (!playlist.includes(movie.id)) {
+      newPlaylist.push(movie.id);
+    }
+    setPlaylist(newPlaylist);
+    console.log(newPlaylist);
+  };
+
   return (
     <MoviesContext.Provider
       value={{
@@ -41,7 +42,7 @@ const MoviesContextProvider = (props) => {
         addToFavourites,
         removeFromFavourites,
         addReview,
-        addToPlaylists,
+        addToPlaylist,
       }}
     >
       {props.children}

@@ -2,13 +2,12 @@ import React, { useContext } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@mui/material/IconButton";
 import PlaylistIcon from "@mui/icons-material/PlaylistAdd";
-
 const AddToPlaylistIcon = ({ movie }) => {
   const context = useContext(MoviesContext);
 
   const handleAddToPlaylist = (e) => {
     e.preventDefault();
-    context.addToFavourites(movie);
+    context.addToPlaylist(movie);
   };
 
   return (
@@ -17,5 +16,4 @@ const AddToPlaylistIcon = ({ movie }) => {
     </IconButton>
   );
 };
-
 export default AddToPlaylistIcon;
