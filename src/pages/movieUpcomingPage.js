@@ -16,6 +16,11 @@ const MovieUpcomingPage = (props) => {
     return <h1>{error.message}</h1>
   }  
   const movies = data.results;
+
+  const playlist = movies.filter(m => m.playlist)
+  localStorage.setItem('playlist', JSON.stringify(playlist))
+  const addToPlaylist = (movieId) => true 
+
   
 
   return (
