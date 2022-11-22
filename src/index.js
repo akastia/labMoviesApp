@@ -13,6 +13,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import PlaylistMoviesPage from "./pages/playlistMoviesPage";
+import TopMoviesPage from "./pages/topMoviesPage";
 import ActorsPage from "./pages/movieActorPage";
 import ActorDetailsPage from "./pages/movieActorDetailPage";
 
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
             <Route path="/movies/upcoming" element={<MovieUpcomingPage/>} />            
             <Route path="/movies/playlist" element={ <PlaylistMoviesPage /> } />
+            <Route path="/movies/topmovies" element={<TopMoviesPage/>} />
             <Route path="/actors" element={ <ActorsPage /> } />
             <Route path="/actors/:id" element={ <ActorDetailsPage /> } />
             <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
