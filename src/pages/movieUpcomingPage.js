@@ -15,20 +15,20 @@ const MovieUpcomingPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }  
-  const upcoming = data.results;
+  const movies = data.results;
 
-  const playlist = upcoming.filter(m => m.playlist)
+  const playlist = movies.filter(m => m.playlist)
   localStorage.setItem('playlist', JSON.stringify(playlist))
-  const addToPlaylist = (upcomingId) => true 
+  const addToPlaylist = (movieId) => true 
 
   
 
   return (
     <PageTemplate
       title="Upcoming Movies"
-      movies={upcoming}
-      action={(upcoming) => {
-        return <AddToPlaylistIcon movie={upcoming} />
+      movies={movies}
+      action={(movies) => {
+        return <AddToPlaylistIcon movie={movies} />
       }}
     />
   );

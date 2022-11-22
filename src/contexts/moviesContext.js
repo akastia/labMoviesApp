@@ -32,7 +32,6 @@ const MoviesContextProvider = (props) => {
       newPlaylist.push(movie.id);
     }
     setPlaylist(newPlaylist);
-    console.log(newPlaylist);
   };
 
   return (

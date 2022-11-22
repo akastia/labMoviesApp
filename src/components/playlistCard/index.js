@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import CircleIcon from "@mui/icons-material/CircleRounded";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
@@ -16,28 +16,28 @@ import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
 
 
-export default function MovieCard({ movie, action }) {
-  const { favourites, addToFavourites } = useContext(MoviesContext);
+export default function PlaylistCard({ movie, action }) {
+  const { playlist, addToPlaylist } = useContext(MoviesContext);
  
-   if (favourites.find((id) => id === movie.id)) {
-     movie.favourite = true;
+   if (playlist.find((id) => id === movie.id)) {
+     movie.playlist = true;
    } else {
-     movie.favourite = false
+     movie.playlist = false
    }
 
    
-   const handleAddToFavourite = (e) => {
+   const handleAddToPlaylist = (e) => {
      e.preventDefault();
-     addToFavourites(movie);
+     addToPlaylist(movie);
    };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          movie.favourite ? (
+          movie.playlist ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavoriteIcon />
+              <CircleIcon />
             </Avatar>
           ) : null
         }
@@ -73,7 +73,7 @@ export default function MovieCard({ movie, action }) {
       </CardContent>
       <CardActions disableSpacing>
     {action(movie)}
-    <Link to={`/movies/${movie.id}`}>
+    <Link to={`/movies/upcoming/${movie.id}`}>
       <Button variant="outlined" size="medium" color="primary">
         More Info ...
       </Button>
