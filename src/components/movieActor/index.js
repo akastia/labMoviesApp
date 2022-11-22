@@ -17,25 +17,15 @@ import Avatar from '@mui/material/Avatar';
 import { ActorsContext } from "../../contexts/actorsContext";
 
 
-export default function MovieActor({ actor, action }) {
-  const { favourites, addToFavourites } = useContext(ActorsContext);
+export default function MovieActor({ props }) {
+  
+  const actors = props.actors
  
-   if (favourites.find((id) => id === actor.id)) {
-    actor.favourite = true;
-   } else {
-    actor.favourite = false
-   }
- 
-   const handleAddToFavourite = (e) => {
-     e.preventDefault();
-     addToFavourites(actor);
-   };
-
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-            actor.favourite ? (
+            actors.favourite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
             </Avatar>
@@ -43,42 +33,21 @@ export default function MovieActor({ actor, action }) {
         }
         title={
           <Typography variant="h5" component="p">
-            {actor.title}{" "}
+            {actors.name}{" "}
           </Typography>
         }
       />
       <CardMedia
         sx={{ height: 500 }}
         image={
-            actor.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${actor.poster_path}`
+            actors.profile_path
+            ? `https://image.tmdb.org/t/p/w500/${actors.profile.path}`
             : img
         }
       />
       <CardContent>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {actor.release_date}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {actor.vote_average}{" "}
-            </Typography>
-          </Grid>
-        </Grid>
-      </CardContent>
-      <CardActions disableSpacing>
-    {action(actor)}
-    <Link to={`/actor/${actor.id}`}>
-      <Button variant="outlined" size="medium" color="primary">
-        More Info ...
-      </Button>
-    </Link>
-  </CardActions>
+        <Link to={`/actors/${actors.id}`}></Link>
+    </CardContent>
     </Card>
   );
 }

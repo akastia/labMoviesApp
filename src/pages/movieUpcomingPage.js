@@ -19,9 +19,8 @@ const MovieUpcomingPage = (props) => {
 
   const playlist = movies.filter(m => m.playlist)
   localStorage.setItem('playlist', JSON.stringify(playlist))
-  const addToPlaylist = (movieId) => true 
+  const addToPlaylists = (movieId) => true 
 
-  
 
   return (
     <PageTemplate

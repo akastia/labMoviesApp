@@ -5,16 +5,17 @@ import { useQueries } from "react-query";
 import { getUpcomingMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromPlaylist from "../components/cardIcons/removeFromPlaylist";
+import WriteReview from "../components/cardIcons/writeReview";
 
 
 const PlaylistMoviesPage = () => {
-  const {playlist:  upcomingId} = useContext(MoviesContext);
+  const {playlists: movieIds } = useContext(MoviesContext);
 
   // Create an array of queries and run in parallel.
   const playlistMovieQueries = useQueries(
-    upcomingId.map((upcomingId) => {
+    movieIds.map((movieId) => {
       return {
-        queryKey: ["upcoming", { id: upcomingId }],
+        queryKey: ["movie", { id: movieId }],
         queryFn: getUpcomingMovie,
       };
     })
@@ -27,21 +28,21 @@ const PlaylistMoviesPage = () => {
   }
 
   const upcoming = playlistMovieQueries.map((q) => {
-    q.data.genre_ids = q.data.genres.map(g => g.id)
+    q.data.genre_ids = q.data.genres.map(genre => genre.id)
     return q.data
   });
 
-  const toDo = () => true;
+  // const toDo = () => true;
 
   return (
     <PageTemplate
-      title="Playlist Movies"
+      title="Must Watch Later Movies"
       movies={upcoming}
-      action={(upcoming) => {
+      action={(movie) => {
         return (
           <>
-            <RemoveFromPlaylist movie={upcoming} />
-            
+            <RemoveFromPlaylist movie={movie} />
+            <WriteReview movie={movie} />
           </>
         );
       }}

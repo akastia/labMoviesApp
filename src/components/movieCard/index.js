@@ -17,7 +17,7 @@ import { MoviesContext } from "../../contexts/moviesContext";
 
 
 export default function MovieCard({ movie, action }) {
-  const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { favourites, addToFavourites, playlists, AddtoPlaylists } = useContext(MoviesContext);
  
    if (favourites.find((id) => id === movie.id)) {
      movie.favourite = true;
@@ -30,6 +30,18 @@ export default function MovieCard({ movie, action }) {
      e.preventDefault();
      addToFavourites(movie);
    };
+
+   if (playlists.find((id) => id === movie.id)) {
+    movie.playlists = true;
+  } else {
+    movie.playlists = false
+  }
+
+  
+  const handleAddToPlaylists = (e) => {
+    e.preventDefault();
+    AddtoPlaylists(movie);
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
