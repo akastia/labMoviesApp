@@ -8,13 +8,13 @@ import RemoveFromPlaylist from "../components/cardIcons/removeFromPlaylist";
 
 
 const PlaylistMoviesPage = () => {
-  const {playlist: movieIds } = useContext(MoviesContext);
+  const {playlist:  upcomingId} = useContext(MoviesContext);
 
   // Create an array of queries and run in parallel.
   const playlistMovieQueries = useQueries(
-    movieIds.map((movieId) => {
+    upcomingId.map((upcomingId) => {
       return {
-        queryKey: ["movie", { id: movieId }],
+        queryKey: ["upcoming", { id: upcomingId }],
         queryFn: getUpcomingMovie,
       };
     })
@@ -26,7 +26,7 @@ const PlaylistMoviesPage = () => {
     return <Spinner />;
   }
 
-  const movies = playlistMovieQueries.map((q) => {
+  const upcoming = playlistMovieQueries.map((q) => {
     q.data.genre_ids = q.data.genres.map(g => g.id)
     return q.data
   });
@@ -36,11 +36,11 @@ const PlaylistMoviesPage = () => {
   return (
     <PageTemplate
       title="Playlist Movies"
-      movies={movies}
-      action={(movie) => {
+      movies={upcoming}
+      action={(upcoming) => {
         return (
           <>
-            <RemoveFromPlaylist movie={movie} />
+            <RemoveFromPlaylist movie={upcoming} />
             
           </>
         );
