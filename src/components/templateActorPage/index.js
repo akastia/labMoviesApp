@@ -1,5 +1,5 @@
 import React from "react";
-import ActorHeader from "../headerActor";
+import HeaderActorList from "../headerActorList";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -20,12 +20,11 @@ const TemplateActorPage = ({ actor, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters
+  const images = data.profiles;
 
-  
   return (
     <>
-      <ActorHeader actor={actor} />
+      <HeaderActorList actor={actor} />
 
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>
@@ -34,7 +33,8 @@ const TemplateActorPage = ({ actor, children }) => {
             flexWrap: "wrap",
             justifyContent: "space-around",
           }}>
-            <ImageList 
+
+           <ImageList 
                 cols={1}>
                 {images.map((image) => (
                     <ImageListItem key={image.file_path} cols={1}>

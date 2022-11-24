@@ -1,17 +1,17 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
-import ActorsDetails from "../components/actorDetails/";
+import ActorDetails from "../components/actorDetails";
 import PageTemplate from "../components/templateActorPage";
-import { getActorsImages } from '../api/tmdb-api'
+import { getActor } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
 const ActorDetailsPage = (props) => {
   const { id } = useParams();
 
-  const { data: actors, error, isLoading, isError } = useQuery(
-    ["actor", { id: id }],
-    getActorsImages
+  const { data: actor, error, isLoading, isError } = useQuery(
+    ["people", { id: id }],
+    getActor
   );
 
   if (isLoading) {
@@ -22,13 +22,12 @@ const ActorDetailsPage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
-
   return (
     <>
-      {actors ? (
+      {actor ? (
         <>
-          <PageTemplate actors={actors}>
-            <ActorsDetails actors={actors} />
+          <PageTemplate actor={actor}>
+            <ActorDetails actor={actor} />
           </PageTemplate>
         </>
       ) : (

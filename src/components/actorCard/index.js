@@ -18,12 +18,14 @@ import { Link } from "react-router-dom";
 
 export default function ActorCard(props) {
   const actors = props.actors;
+  
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         title={
           <Typography variant="h5" component="p">
             {actors.name}{" "}
+            
           </Typography>
         }
       />
@@ -41,6 +43,7 @@ export default function ActorCard(props) {
             More Info ...
           </Button>
         </Link>
+        
       </CardContent>
     </Card>
   );
