@@ -88,38 +88,7 @@ export const getMovie = (args) => {
         throw error
      });
     };
-
-    export const getMovieActors = (id) => {
-      return fetch(
-        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-      ).then((response) => {
-        if (!response.ok) {
-          throw new Error(response.json().message);
-        }
-        return response.json();
-      })
-      .catch((error) => {
-         throw error
-      });
-    };
-
-    export const getMovieActorImages = ({ queryKey }) => {
-      const [, idPart] = queryKey;
-      const { id } = idPart;
-      return fetch(
-        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-      ).then( (response) => {
-        if (!response.ok) {
-          throw new Error(response.json().message);
-        }
-        return response.json();
     
-      })
-      .catch((error) => {
-        throw error
-     });
-    };
-
     export const getTopMovies = () => {
       return fetch(
         `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}`
@@ -147,3 +116,56 @@ export const getMovie = (args) => {
          throw error
       });
     };
+
+    // Actors
+
+    export const getActors = () => {
+      return fetch(
+        `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      ).then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+         throw error
+      });
+    };
+
+    export const getActor = (args) => {
+      // console.log(args)
+      const [, idPart] = args.queryKey;
+      const { id } = idPart;
+      return fetch(
+        `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      ).then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error
+     });
+    };
+
+    export const getActorsImages = ({ queryKey }) => {
+        const [, idPart] = queryKey;
+        const { id } = idPart;
+        return fetch(
+          `https://api.themoviedb.org/3/actor/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+        ).then( (response) => {
+          if (!response.ok) {
+            throw new Error(response.json().message);
+          }
+          return response.json();
+      
+        })
+        .catch((error) => {
+          throw error
+       });
+      };
+    
+      
+      

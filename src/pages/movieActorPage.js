@@ -1,5 +1,5 @@
 import React from "react";
-import { getMovieActors } from "../api/tmdb-api";
+import { getActors } from "../api/tmdb-api";
 import PageTemplate from '../components/templateActorList';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
@@ -7,7 +7,7 @@ import Spinner from '../components/spinner';
 
 const ActorsPage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovieActors)
+  const {  data, error, isLoading, isError }  = useQuery('discover', getActors)
 
   if (isLoading) {
     return <Spinner />
