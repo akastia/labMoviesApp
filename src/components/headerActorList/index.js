@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const HeaderActor = (props ) => {
+const HeaderActorList = (props ) => {
   const name = props.name
   const navigate = useNavigate();
   
@@ -38,4 +38,4 @@ const HeaderActor = (props ) => {
   );
 };
 
-export default HeaderActor;
+export default HeaderActorList;

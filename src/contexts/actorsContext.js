@@ -4,23 +4,22 @@ export const ActorsContext = React.createContext(null);
 
 const ActorsContextProvider = (props) => {
   // const [myReviews, setMyReviews] = useState( {} ) 
-  const [favourites, setFavourites] = useState( [] )
+  const [favouritesActors, setFavouritesActors] = useState( [] )
   // const [playlists, setPlaylist] = useState( [] )
 
-  const addToFavourites = (actor) => {
-    let newFavourites = [...favourites];
-    if (!favourites.includes(actor.id)) {
+  const addToFavouritesActors = (actor) => {
+    let newFavourites = [...favouritesActors];
+    if (!favouritesActors.includes(actor.id)) {
       newFavourites.push(actor.id);
     }
-    setFavourites(newFavourites);
+    setFavouritesActors(newFavourites);
   };
 
-  // // We will use this function in a later section
-  // const removeFromFavourites = (movie) => {
-  //   setFavourites( favourites.filter(
-  //     (mId) => mId !== movie.id
-  //   ) )
-  // };
+  const removeFromFavourites = (actor) => {
+    setFavouritesActors( favouritesActors.filter(
+      (aId) => aId !== actor.id
+    ) )
+  };
 
   // const addReview = (movie, review) => {
   //   setMyReviews( {...myReviews, [movie.id]: review } )
@@ -38,9 +37,9 @@ const ActorsContextProvider = (props) => {
   return (
     <ActorsContext.Provider
       value={{
-        favourites,
-        addToFavourites,
-        // removeFromFavourites,
+        favouritesActors,
+        addToFavouritesActors,
+        removeFromFavourites,
         // addReview,
         // playlists,
         // addToPlaylists,

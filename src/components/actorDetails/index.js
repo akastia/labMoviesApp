@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
-import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-import { CardContent } from "@mui/material";
+
 
 const root = {
     display: "flex",
@@ -32,6 +29,7 @@ const chip = { margin: 0.5 };
 const ActorDetails = ({ actor }) => { 
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  
   return (
     <>
       <Typography variant="h5" component="h3">
