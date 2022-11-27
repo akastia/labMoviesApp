@@ -7,6 +7,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import PlaylistIcon from "@mui/icons-material/PlaylistAdd";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
@@ -32,7 +33,7 @@ export default function MovieCard({ movie, action }) {
    };
 
    if (playlists.find((id) => id === movie.id)) {
-    movie.playlists = true;
+    movie.playlist = true;
   } else {
     movie.playlists = false
   }
@@ -50,6 +51,10 @@ export default function MovieCard({ movie, action }) {
           movie.favourite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
+            </Avatar>
+          ) : movie.playlist ? (
+            <Avatar sx={{ backgroundColor: 'blue' }}>
+              <PlaylistIcon />
             </Avatar>
           ) : null
         }
