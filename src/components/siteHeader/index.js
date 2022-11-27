@@ -15,19 +15,40 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = ({ history }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorMovie, setAnchorMovie] = useState(null);
+  const [anchorActor, setAnchorActor] = useState(null);
+  const [anchorMenu, setAnchorMenu] = useState(null);
+
+  const openMovie = Boolean(anchorMovie);
+  const openActor = Boolean(anchorActor);
+  const open = Boolean(anchorMenu);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigate = useNavigate();
 
+
+//  Categorish the menu with a drop down
+  const movieOptions = [
+    { label: "Home", path: "/" },
+    { label: "Upcoming", path: "/movies/upcoming"},
+    { label: "Favourites", path: "/movies/favourites"},
+    { label: "Must Watch", path: "/movies/playlist"},
+    { label: "Top Rated", path: "/movies/top_movies"},
+    { label: "Playing Now", path: "/movies/now_playing"},
+
+  ];
+
+  const actorOptions = [
+    { label: "Actors", path: "/actors" },
+    { label: "Favourite Actors", path: "/actors/favourites" },];
+
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming"},
-    { label: "Movie Favourites", path: "/movies/favourites" },
-    { label: "Playlist", path: "/movies/playlist" },
+    { label: "Favourites", path: "/movies/favourites" },
+    { label: "Must Watch", path: "/movies/playlist" },
     { label: "Actors", path: "/actors" },
     { label: "Favourite Actors", path: "/actors/favourites" },
   ];
@@ -36,9 +57,19 @@ const SiteHeader = ({ history }) => {
     navigate(pageURL, { replace: true });
   };
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleMenuMovie = (event) => {
+    setAnchorMovie(event.currentTarget);
   };
+
+  const handleMenuActor = (event) => {
+    setAnchorActor(event.currentTarget);
+  };
+
+  const handleMenu= (event) => {
+    setAnchorMenu(event.currentTarget);
+  };
+  
+  
 
   return (
     <>
@@ -64,7 +95,7 @@ const SiteHeader = ({ history }) => {
                 
                 <Menu
                   id="menu-appbar"
-                  anchorEl={anchorEl}
+                  anchorEl={anchorMenu}
                   anchorOrigin={{
                     vertical: "top",
                     horizontal: "right",
@@ -75,7 +106,7 @@ const SiteHeader = ({ history }) => {
                     horizontal: "right",
                   }}
                   open={open}
-                  onClose={() => setAnchorEl(null)}
+                  onClose={() => setAnchorMenu(null)}
                 >
                   {menuOptions.map((opt) => (
                     <MenuItem
@@ -89,15 +120,68 @@ const SiteHeader = ({ history }) => {
               </>
             ) : (
               <>
-                {menuOptions.map((opt) => (
-                  <Button
-                    key={opt.label}
-                    color="inherit"
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
-                    {opt.label}
-                  </Button>
-                ))}
+              <Button
+                id="movie-menu"
+                aria-controls="movie-menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenuMovie}
+                color="inherit">
+                  Movies
+              </Button>
+              <Menu
+              id="movie-menu-appbar"
+              anchorEl={anchorMovie}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={openMovie}
+              onClose={() => setAnchorMovie(null)}>
+                {movieOptions.map((opt) => (
+                    <MenuItem
+                      key={opt.label}
+                      onClick={() => handleMenuSelect(opt.path)}
+                    >
+                      {opt.label}
+                    </MenuItem>
+                  ))}
+              </Menu>
+              <Button
+                id="actor-menu"
+                aria-controls="actor-menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenuActor}
+                color="inherit">
+                  Actors
+              </Button>
+              <Menu
+              id="actor-menu-appbar"
+              anchorEl={anchorActor}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={openActor}
+              onClose={() => setAnchorActor(null)}>
+                {actorOptions.map((opt) => (
+                    <MenuItem
+                      key={opt.label}
+                      onClick={() => handleMenuSelect(opt.path)}
+                    >
+                      {opt.label}
+                    </MenuItem>
+                  ))}
+              </Menu>
               </>
             )}
         </Toolbar>
