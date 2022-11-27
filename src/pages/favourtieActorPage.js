@@ -4,16 +4,16 @@ import { ActorsContext } from "../contexts/actorsContext";
 import { useQueries } from "react-query";
 import { getActor } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
-import RemoveFromFavourites from "../components/cardIcons/removeActorFromFavourite";
-import WriteReview from "../components/cardIcons/writeReview";
+import RemoveFromActorFavourites from "../components/cardIcons/removeActorFromFavourite";
+// import WriteReview from "../components/cardIcons/writeReview";
 
 
 const FavouriteActorsPage = () => {
-  const {favourites: actorsId } = useContext(ActorsContext);
+  const {favourites: actorIds } = useContext(ActorsContext);
 
   // Create an array of queries and run in parallel.
   const favouriteActorQueries = useQueries(
-    actorsId.map((actorId) => {
+    actorIds.map((actorId) => {
       return {
         queryKey: ["actor", { id: actorId }],
         queryFn: getActor,
@@ -28,7 +28,6 @@ const FavouriteActorsPage = () => {
   }
 
   const actors = favouriteActorQueries.map((q) => {
-    q.data.genre_ids = q.data.genres.map(g => g.id)
     return q.data
   });
 
@@ -41,8 +40,7 @@ const FavouriteActorsPage = () => {
       action={(actor) => {
         return (
           <>
-            <RemoveFromFavourites actor={actor} />
-            <WriteReview actor={actor} />
+            <RemoveFromActorFavourites actor={actor} />
           </>
         );
       }}

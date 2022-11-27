@@ -16,20 +16,20 @@ import Avatar from '@mui/material/Avatar';
 import ActorsContext  from "../../contexts/actorsContext";
 
 
-export default function ActorCard({ actor, action }) {
-  // const actors = props.actors;
-  const { favouritesActors, addToFavouritesActors} = useContext(ActorsContext);
+export default function ActorCard(props) {
+  const actor = props.actor;
+  // const { favouritesActors, addToFavouritesActors} = useContext(ActorsContext);
 
-  if (favouritesActors.find((id) => id === actor.id)) {
-    actor.favouritesActors = true;
-  } else {
-    actor.favouritesActors = false
-  }
+  // if (favouritesActors.find((id) => id === actor.id)) {
+  //   actor.favouritesActors = true;
+  // } else {
+  //   actor.favouritesActors = false
+  // }
 
-  const handleAddToFavourite = (e) => {
-    e.preventDefault();
-    addToFavouritesActors(actor);
-  };
+  // const handleAddToFavourite = (e) => {
+  //   e.preventDefault();
+  //   addToFavouritesActors(actor);
+  // };
   
   return (
     <Card sx={{ maxWidth: 345 }}>

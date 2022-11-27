@@ -21,7 +21,7 @@ const ActorsPage = (props) => {
   // // Redundant, but necessary to avoid app crashing.
   const favourites = actors.filter(a => a.favourite)
   localStorage.setItem('favourites', JSON.stringify(favourites))
-  const addToFavouritesAc = (actorId) => true 
+  const addToFavourites = (actorId) => true 
 
   return (
     <PageTemplate
