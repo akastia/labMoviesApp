@@ -4,18 +4,18 @@ import { ActorsContext } from "../contexts/actorsContext";
 import { useQueries } from "react-query";
 import { getActor } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
-import RemoveFromActorFavourites from "../components/cardIcons/removeActorFromFavourite";
-// import WriteReview from "../components/cardIcons/writeReview";
+import RemoveFromFavourites from "../components/cardIcons/removeActorFromFavourite";
+import WriteReview from "../components/cardIcons/writeReview";
 
 
-const FavouriteActorsPage = () => {
-  const {favourites: actorIds } = useContext(ActorsContext);
+const FavouriteActorPage = () => {
+  const {favourites: actorId } = useContext(ActorsContext);
 
   // Create an array of queries and run in parallel.
   const favouriteActorQueries = useQueries(
-    actorIds.map((actorId) => {
+    actorId.map((actorId) => {
       return {
-        queryKey: ["actor", { id: actorId }],
+        queryKey: ["people", { id: actorId }],
         queryFn: getActor,
       };
     })
@@ -28,6 +28,7 @@ const FavouriteActorsPage = () => {
   }
 
   const actors = favouriteActorQueries.map((q) => {
+    
     return q.data
   });
 
@@ -40,7 +41,8 @@ const FavouriteActorsPage = () => {
       action={(actor) => {
         return (
           <>
-            <RemoveFromActorFavourites actor={actor} />
+            <RemoveFromFavourites actor={actor} />
+            
           </>
         );
       }}
@@ -48,4 +50,4 @@ const FavouriteActorsPage = () => {
   );
 };
 
-export default FavouriteActorsPage;
+export default FavouriteActorPage;

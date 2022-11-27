@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
-export const ActorsContext = React.createContext(null);
+export const ActorsContext = React.createContext({
+  favourites: [],
+  addFav: (actor) => {},
+  removeFav: (actor) => {},
+});
 
 const ActorsContextProvider = (props) => {
+  
   const [favourites, setFavourites] = useState( [] )
-  const [myReviews, setMyReviews] = useState( {} ) 
+  
 
   const addToFavourites = (actor) => {
     let newFavourites = [...favourites];
@@ -12,33 +17,25 @@ const ActorsContextProvider = (props) => {
       newFavourites.push(actor.id);
     }
     setFavourites(newFavourites);
-    console.log(newFavourites);
   };
 
   // We will use this function in a later section
   const removeFromFavourites = (actor) => {
     setFavourites( favourites.filter(
-      (tId) => tId !== actor.id
+      (mId) => mId !== actor.id
     ) )
   };
 
-  const addReview = (actor, review) => {
-    setMyReviews( {...myReviews, [actor.id]: review } )
+  const favouritesValue = {
+    favourites: favourites,
+    addFav: addToFavourites,
+    removeFav: removeFromFavourites,
   };
 
-
-
   return (
-    <ActorsContext.Provider
-      value={{
-        favourites,
-        addToFavourites,
-        removeFromFavourites,
-        addReview,
-        
-      }}
+    <ActorsContext.Provider value={favouritesValue}
     >
-      {props.children}
+      <Fragment>{props.children}</Fragment>
     </ActorsContext.Provider>
   );
 };
