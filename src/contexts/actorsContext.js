@@ -1,10 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-export const ActorsContext = React.createContext({
-  favourites: [],
-  addFav: (actor) => {},
-  removeFav: (actor) => {},
-});
+export const ActorsContext = React.createContext(null);
 
 const ActorsContextProvider = (props) => {
   
@@ -26,16 +22,17 @@ const ActorsContextProvider = (props) => {
     ) )
   };
 
-  const favouritesValue = {
-    favourites: favourites,
-    addFav: addToFavourites,
-    removeFav: removeFromFavourites,
-  };
+  
 
   return (
-    <ActorsContext.Provider value={favouritesValue}
+    <ActorsContext.Provider
+    value={{
+      favourites,
+      addToFavourites,
+      removeFromFavourites,
+    }}
     >
-      <Fragment>{props.children}</Fragment>
+      {props.children}
     </ActorsContext.Provider>
   );
 };

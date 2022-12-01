@@ -7,13 +7,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 const ActorFavouritesIcon = ({ actor }) => {
   const context = useContext(ActorsContext);
 
-  const handleAddToFavourites = (e) => {
+  const handleAddToFavouritesActor = (e) => {
     e.preventDefault();
-    context.addToFavourites(actor);
+    context.addToFavouritesActor(actor);
   };
 
   return (
-    <IconButton aria-label="add to favorites" onClick={handleAddToFavourites}>
+    <IconButton aria-label="add to favorites" onClick={handleAddToFavouritesActor}>
       <FavoriteIcon color="primary" fontSize="large" />
     </IconButton>
   );

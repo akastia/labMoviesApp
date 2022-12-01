@@ -1,6 +1,6 @@
 import React from "react";
 import ActorHeader from "../components/headerActor";
-import SampleActor from "./sampleActor";
+import SampleActor from "./sampleActorData";
 import { MemoryRouter } from "react-router";
 
 export default {

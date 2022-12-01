@@ -68,24 +68,7 @@ const ActorDetails = ({ actor }) => {
         
       </Paper>
       
-      {/* <Paper 
-        component="ul" 
-        sx={info}
-      >
-        <Typography variant="h6" component="p">
-        Personal Info
-        </Typography>
-        
-      </Paper>
-
-
-      <Typography variant="h10" component="p">
-        Known For
-        {actor.known_for_department}
-        
-        </Typography>
-         */}
-      <Fab
+            <Fab
         color="secondary"
         variant="extended"
         onClick={() =>setDrawerOpen(true)}

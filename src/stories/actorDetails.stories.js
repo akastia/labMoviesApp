@@ -1,6 +1,6 @@
 import React from "react";
 import ActorDetails from "../components/actorDetails";
-import SampleActor from "./sampleActor";
+import SampleActor from "./sampleActorData";
 import { MemoryRouter } from "react-router";
 import ActorsContextProvider from "../contexts/actorsContext";
 

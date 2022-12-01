@@ -1,6 +1,6 @@
 import React from "react";
 import ActorList from "../components/actorList";
-import SampleActor from "./sampleActor";
+import SampleActor from "./sampleActorData";
 import { MemoryRouter } from "react-router";
 import ActorsContextProvider from "../contexts/actorsContext";
 import Grid from "@material-ui/core/Grid";
