@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { ActorsContext } from "../../contexts/actorsContext";
 
-const RemoveFromFavouritesIcon = ({ actor }) => {
+const RemoveActorFromFavouritesIcon = ({ actor }) => {
   const context = useContext(ActorsContext);
 
   const handleRemoveFromFavourites = (e) => {
@@ -20,4 +20,4 @@ const RemoveFromFavouritesIcon = ({ actor }) => {
   );
 };
 
-export default RemoveFromFavouritesIcon;
+export default RemoveActorFromFavouritesIcon;

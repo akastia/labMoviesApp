@@ -18,9 +18,11 @@ const SiteHeader = ({ history }) => {
   const [anchorMovie, setAnchorMovie] = useState(null);
   const [anchorActor, setAnchorActor] = useState(null);
   const [anchorMenu, setAnchorMenu] = useState(null);
+  const [anchorTvShow, setAnchorTvShow] = useState(null);
 
   const openMovie = Boolean(anchorMovie);
   const openActor = Boolean(anchorActor);
+  const openTvShow = Boolean(anchorTvShow);
   const open = Boolean(anchorMenu);
 
   const theme = useTheme();
@@ -53,6 +55,11 @@ const SiteHeader = ({ history }) => {
     { label: "Favourite Actors", path: "/actors/favourites" },
   ];
 
+  const tvShowOptions = [
+    {label: "Tv Shows", path: "/tv_shows"},
+  ];
+  
+
   const handleMenuSelect = (pageURL) => {
     navigate(pageURL, { replace: true });
   };
@@ -69,6 +76,9 @@ const SiteHeader = ({ history }) => {
     setAnchorMenu(event.currentTarget);
   };
   
+  const handleMenuTvShow= (event) => {
+    setAnchorTvShow(event.currentTarget);
+  };
   
 
   return (
@@ -174,6 +184,37 @@ const SiteHeader = ({ history }) => {
               open={openActor}
               onClose={() => setAnchorActor(null)}>
                 {actorOptions.map((opt) => (
+                    <MenuItem
+                      key={opt.label}
+                      onClick={() => handleMenuSelect(opt.path)}
+                    >
+                      {opt.label}
+                    </MenuItem>
+                  ))}
+              </Menu>
+              <Button
+                id="tvshow"
+                aria-controls="tv-menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenuTvShow}
+                color="inherit">
+                  TV Show
+              </Button>
+              <Menu
+              id="tv-menu-appbar"
+              anchorEl={anchorTvShow}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={openTvShow}
+              onClose={() => setAnchorTvShow(null)}>
+                {tvShowOptions.map((opt) => (
                     <MenuItem
                       key={opt.label}
                       onClick={() => handleMenuSelect(opt.path)}

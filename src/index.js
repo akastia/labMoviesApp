@@ -19,6 +19,8 @@ import NowPlayingMoviePage from "./pages/playingnowPage";
 import ActorsPage from "./pages/movieActorPage";
 import ActorDetailsPage from "./pages/movieActorDetailPage";
 import FavouriteActorsPage from "./pages/favourtieActorPage";
+import TvShowPage from "./pages/TvPage";
+import TvShowDetailsPage from "./pages/TvDetailPage";
 
 
 
@@ -52,7 +54,9 @@ const App = () => {
               <Route path="/actors/:id" element={ <ActorDetailsPage /> } />
               <Route path="/actors/favourites" element={ <FavouriteActorsPage /> } />
               <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-              <Route path="/reviews/:id" element={ <MovieReviewPage /> } />              
+              <Route path="/reviews/:id" element={ <MovieReviewPage /> } /> 
+              <Route path="/tv_shows/" element={ <TvShowPage /> } />
+              <Route path="/tv_shows/:id" element={ <TvShowDetailsPage /> } />             
             </Routes>
           </ActorsContextProvider>
         </MoviesContextProvider>
