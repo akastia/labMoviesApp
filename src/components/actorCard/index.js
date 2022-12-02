@@ -1,4 +1,4 @@
-import React, { useContext  }from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -6,36 +6,21 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-// import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
-// import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
-import PeopleIcon from "@mui/icons-material/People"
+import WCIcon from "@mui/icons-material/Wc";
 import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import Avatar from '@mui/material/Avatar';
-import ActorsContext  from "../../contexts/actorsContext";
-
 
 export default function ActorCard(props) {
   const actor = props.actor;
-  // const { favourites, addToFavourites} = actor;
-
-  // if (favourites.find((id) => id === actor.id)) {
-  //   actor.favourite = true;
-  // } else {
-  //   actor.favourite = false
-  // }
-
-  // const handleAddToFavourite = (e) => {
-  //   e.preventDefault();
-  //   addToFavourites(actor);
-  // };
-  (actor.gender === 1) ? actor.gender = "  Female" : actor.gender = "  Male"
+  
+  (actor.gender === 1) ? actor.gender = "  Female" : actor.gender = "  Male" 
   
   return (
     <Card sx={{ maxWidth: 345 }}>
-          <CardHeader
+      <CardHeader
         avatar={
           actor.favourite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
@@ -45,7 +30,7 @@ export default function ActorCard(props) {
         }
         title={
           <Typography variant="h5" component="p">
-            {actor.name}{" "} 
+            {actor.name}
           </Typography>
         }
       />
@@ -61,7 +46,7 @@ export default function ActorCard(props) {
         <Grid container>
             <Grid item xs={6}>
               <Typography variant="h6" component="p">
-                <PeopleIcon/>
+                <WCIcon/>
                 {actor.gender}
               </Typography>
             </Grid>

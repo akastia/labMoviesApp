@@ -57,6 +57,8 @@ const SiteHeader = ({ history }) => {
 
   const tvShowOptions = [
     {label: "Tv Shows", path: "/tv_shows"},
+    {label: "Top Rated", path: "/tv_shows/top_tv"},
+    {label: "Airing Today", path: "/tv_shows/airing_today"},
   ];
   
 

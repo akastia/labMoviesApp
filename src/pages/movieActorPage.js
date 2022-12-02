@@ -3,7 +3,7 @@ import { getActors } from "../api/tmdb-api";
 import PageTemplate from '../components/templateActorList';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavouritesIcon from '../components/cardIcons/addActorFavourites';
+import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
 const ActorsPage = (props) => {
 

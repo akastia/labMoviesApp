@@ -4,7 +4,7 @@ import { ActorsContext } from "../contexts/actorsContext";
 import { useQueries } from "react-query";
 import { getActor } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
-import RemoveFromFavourites from "../components/cardIcons/removeActorFromFavourite";
+import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
 
 
@@ -32,7 +32,7 @@ const FavouriteActorPage = () => {
     return q.data
   });
 
-  const toDo = () => true;
+
 
   return (
     <PageTemplate

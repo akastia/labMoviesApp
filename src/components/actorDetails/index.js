@@ -32,9 +32,6 @@ const ActorDetails = ({ actor }) => {
   
   return (
     <>
-      <Typography variant="h5" component="h3">
-        {actor.name}
-      </Typography>
 
       <Typography variant="h6" component="p">
         Biography
@@ -44,10 +41,7 @@ const ActorDetails = ({ actor }) => {
         component="ul" 
         sx={root}
       >
-        <li>
-          <Chip label="Biography" sx={chip} color="primary" />
-        </li>
-        <li>{actor.biography} </li>
+        {actor.biography}
       </Paper>
       <Typography variant="h6" component="p">
         Personal Info
@@ -62,12 +56,23 @@ const ActorDetails = ({ actor }) => {
           <p>Birthday<br></br>{actor.birthday}</p>
           <p>Gender<br></br>{actor.gender}</p>
           <p>Place of Birth<br></br>{actor.place_of_birth}</p>
-          <p>Also Known As<br></br>{actor.also_known_as}</p>
           <p>Popularity<br></br>{actor.popularity}</p>
         </Typography>
         
       </Paper>
-      
+      <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Also Known As" sx={chip} color="primary" />
+        </li>
+        {actor.also_known_as.map((c) => (
+          <li key={c}>
+            <Chip label={c} sx={chip} />
+          </li>
+        ))}
+      </Paper>
       {/* <Paper 
         component="ul" 
         sx={info}
