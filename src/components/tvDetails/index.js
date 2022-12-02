@@ -50,13 +50,19 @@ const TvShowDetails = ({ tv }) => {
         ))}
       </Paper>
       <Paper component="ul" sx={root}>
-        <Chip icon={<AccessTimeIcon />} label={`${tv.episode_run_time} min.`} />
+        <Chip label={`Episode Run time: ${tv.episode_run_time} min.`} />
         
         <Chip
           icon={<StarRate />}
-          label={`${tv.vote_average} (${tv.vote_count}`}
+          label={` ${tv.vote_average} (${tv.vote_count})`}
         />
         <Chip label={`First airing: ${tv.first_air_date}`} />
+      </Paper>
+      <Paper component="ul" sx={root}>
+        <Chip
+          label={`Episodes : ${tv.number_of_episodes} & seasons : ${tv.number_of_seasons}`}
+        />
+        <Chip label={`Origin Country: ${tv.origin_country}`} />
       </Paper>
       <Paper 
         component="ul" 
@@ -69,6 +75,21 @@ const TvShowDetails = ({ tv }) => {
           <li key={c.name}>
             <Chip label={c.name} sx={chip} />
           </li>
+        ))}
+      </Paper>
+      <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Seasons" sx={chip} color="primary" />
+        </li>
+        {tv.seasons.map((s) => (
+          <><li key={s.name}>
+            <Chip label={s.name} sx={chip} />
+          </li><li key={s.air_date}>
+              <Chip label={s.air_date} sx={chip} />
+            </li></>
         ))}
       </Paper>
       
