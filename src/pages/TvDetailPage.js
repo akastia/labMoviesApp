@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
-import TvDetails from "../components/tvShowDetails";
+import TvDetails from "../components/tvDetails";
 import PageTemplate from "../components/templateTvShowPage";
 import { getTvShow } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
-const TvDetailsPage = (props) => {
+const TvShowDetailsPage = (props) => {
   const { id } = useParams();
 
   const { data: tv, error, isLoading, isError } = useQuery(
@@ -31,10 +31,10 @@ const TvDetailsPage = (props) => {
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for tv details</p>
+        <p>Waiting for tv shows details</p>
       )}
     </>
   );
 };
 
-export default TvDetailsPage;
+export default TvShowDetailsPage;

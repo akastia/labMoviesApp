@@ -1,14 +1,12 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
-import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews"
+import StarRate from "@mui/icons-material/StarRate";
+
 
 const root = {
     display: "flex",
@@ -18,21 +16,23 @@ const root = {
     padding: 1.5,
     margin: 0,
 };
+
 const chip = { margin: 0.5 };
 
-const TvDetails = ({ tv }) => {  
+const TvShowDetails = ({ tv }) => { 
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h6" component="p">
         Overview
       </Typography>
 
       <Typography variant="h6" component="p">
         {tv.overview}
       </Typography>
+
 
       <Paper 
         component="ul" 
@@ -48,16 +48,19 @@ const TvDetails = ({ tv }) => {
         ))}
       </Paper>
       <Paper component="ul" sx={root}>
-        <Chip icon={<AccessTimeIcon />} label={`${tv.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${tv.revenue.toLocaleString()}`}
-        />
+        <Chip label={`Episode Run time: ${tv.episode_run_time} min.`} />
+        
         <Chip
           icon={<StarRate />}
-          label={`${tv.vote_average} (${tv.vote_count}`}
+          label={` ${tv.vote_average} (${tv.vote_count})`}
         />
-        <Chip label={`Released: ${tv.first_air_date}`} />
+        <Chip label={`First airing: ${tv.first_air_date}`} />
+      </Paper>
+      <Paper component="ul" sx={root}>
+        <Chip
+          label={`Episodes : ${tv.number_of_episodes} & seasons : ${tv.number_of_seasons}`}
+        />
+        <Chip label={`Origin Country: ${tv.origin_country}`} />
       </Paper>
       <Paper 
         component="ul" 
@@ -72,6 +75,24 @@ const TvDetails = ({ tv }) => {
           </li>
         ))}
       </Paper>
+      <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Seasons" sx={chip} color="primary" />
+        </li>
+        {tv.seasons.map((s) => (
+          <><li key={s.name}>
+            <Chip label={s.name} sx={chip} />
+          </li><li key={s.air_date}>
+              <Chip label={s.air_date} sx={chip} />
+            </li></>
+        ))}
+      </Paper>
+      
+      
+      
       <Fab
         color="secondary"
         variant="extended"
@@ -86,9 +107,9 @@ const TvDetails = ({ tv }) => {
         Reviews
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={tv} />
       </Drawer>
     </>
   );
 };
-export default TvDetails;
+
+export default  TvShowDetails ;

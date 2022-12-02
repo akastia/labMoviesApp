@@ -1,16 +1,16 @@
 import React from "react";
-import HeaderTvList from "../headerTvShowList";
+import TvHeader from "../headerTv";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { getTvShowImages } from "../../api/tmdb-api";
+import { getTvImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
 const TemplateTvPage = ({ tv, children }) => {
   const { data , error, isLoading, isError } = useQuery(
     ["images", { id: tv.id }],
-    getTvShowImages
+    getTvImages
   );
 
   if (isLoading) {
@@ -20,11 +20,11 @@ const TemplateTvPage = ({ tv, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.profiles;
+  const images = data.posters 
 
   return (
     <>
-      <HeaderTvList tv={tv} />
+      <TvHeader tv={tv} />
 
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>
@@ -33,8 +33,7 @@ const TemplateTvPage = ({ tv, children }) => {
             flexWrap: "wrap",
             justifyContent: "space-around",
           }}>
-
-           <ImageList 
+            <ImageList 
                 cols={1}>
                 {images.map((image) => (
                     <ImageListItem key={image.file_path} cols={1}>
@@ -55,5 +54,6 @@ const TemplateTvPage = ({ tv, children }) => {
     </>
   );
 };
+
 
 export default TemplateTvPage;

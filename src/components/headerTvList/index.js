@@ -7,8 +7,9 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 
 
-const HeaderTvList = (props ) => {
-  const title = props.title
+
+const HeaderTvShowList = (props ) => {
+  const name = props.name
   const navigate = useNavigate();
   
   return (
@@ -26,7 +27,7 @@ const HeaderTvList = (props ) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {title}
+        {name}
       </Typography>
 
       <IconButton aria-label="go forward" onClick={() => navigate(+1)}>
@@ -37,4 +38,4 @@ const HeaderTvList = (props ) => {
   );
 };
 
-export default HeaderTvList;
+export default HeaderTvShowList;

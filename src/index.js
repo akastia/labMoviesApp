@@ -6,22 +6,22 @@ import MovieDetailsPage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
 import MovieUpcomingPage from "./pages/movieUpcomingPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
-// import {Link} from 'react-router-dom'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import ActorsContextProvider from "./contexts/actorsContext";
-import TvShowContextProvider from "./contexts/tvShowsContext";
+import TvShowsContextProvider from "./contexts/tvShowContext"
 import PlaylistMoviesPage from "./pages/playlistMoviesPage";
 import TopMoviesPage from "./pages/topMoviesPage";
 import NowPlayingMoviePage from "./pages/playingnowPage";
 import ActorsPage from "./pages/movieActorPage";
 import ActorDetailsPage from "./pages/movieActorDetailPage";
-import FavouriteActorsPage from "./pages/favourtieActorPage";
-import TvPage from "./pages/tvShowPage";
-import TvDetailsPage from "./pages/tvShowDetailsPage";
+import TvShowPage from "./pages/TvPage";
+import TvShowDetailsPage from "./pages/TvDetailPage";
+import TopTvPage from "./pages/topRatedTvPage";
+import AiringTvPage from "./pages/airingTvPage";
 
 
 
@@ -42,7 +42,7 @@ const App = () => {
         <SiteHeader />
         <MoviesContextProvider>
           <ActorsContextProvider>
-            <TvShowContextProvider>
+            <TvShowsContextProvider>
               <Routes>
                 <Route path="/movies/:id" element={<MovieDetailsPage />} />
                 <Route path="/" element={<HomePage />} />
@@ -52,15 +52,16 @@ const App = () => {
                 <Route path="/movies/playlist" element={ <PlaylistMoviesPage /> } />
                 <Route path="/movies/top_movies" element={<TopMoviesPage/>} />
                 <Route path="/movies/now_playing" element={<NowPlayingMoviePage/>} />
-                <Route path="/actors/" element={ <ActorsPage /> } />
+                <Route path="/actors" element={ <ActorsPage /> } />
                 <Route path="/actors/:id" element={ <ActorDetailsPage /> } />
-                <Route path="/actors/favourites" element={ <FavouriteActorsPage /> } />
-                <Route path="/tvshow/" element={ < TvPage/> } />
-                <Route path="/tvshow/:id" element={ < TvDetailsPage/> } />
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-                <Route path="/reviews/:id" element={ <MovieReviewPage /> } />              
+                <Route path="/reviews/:id" element={ <MovieReviewPage /> } /> 
+                <Route path="/tv_shows/" element={ <TvShowPage /> } />
+                <Route path="/tv_shows/:id" element={ <TvShowDetailsPage /> } />          
+                <Route path="/tv_shows/top_tv" element={ <TopTvPage /> }/> 
+                <Route path="/tv_shows/airing_today" element={ <AiringTvPage /> }/>     
               </Routes>
-          </TvShowContextProvider>
+            </TvShowsContextProvider>
           </ActorsContextProvider>
         </MoviesContextProvider>
       </BrowserRouter>

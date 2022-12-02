@@ -1,47 +1,65 @@
 import React from "react";
 import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
+import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
-// import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
-// import StarRateIcon from "@mui/icons-material/StarRate";
-// import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Grid";
+import WCIcon from "@mui/icons-material/Wc";
 import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
-// import Avatar from '@mui/material/Avatar';
-// import { ActorsContext } from "../../contexts/actorsContext";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import Avatar from '@mui/material/Avatar';
 
-
-export default function ActorCard(props) {
-  const actors = props.actors;
+export default function ActorCard({ actor, action }) {
+  
+  
+  (actor.gender === 1) ? actor.gender = "  Female" : actor.gender = "  Male" 
+  
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
+        avatar={
+          actor.favourite ? (
+            <Avatar sx={{ backgroundColor: 'red' }}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
         title={
           <Typography variant="h5" component="p">
-            {actors.name}{" "}
+            {actor.name}
           </Typography>
         }
       />
       <CardMedia
         sx={{ height: 500 }}
         image={
-          actors.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${actors.profile_path}`
+          actor.profile_path
+            ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
             : img
         }
       />
       <CardContent>
-        <Link to={`/actors/${actors.id}`}>
-        <Button variant="outlined" size="medium" color="primary">
+        <Grid container>
+            <Grid item xs={6}>
+              <Typography variant="h6" component="p">
+                <WCIcon/>
+                {actor.gender}
+              </Typography>
+            </Grid>
+          </Grid>
+      </CardContent>
+      <CardActions disableSpacing>
+        {action(actor)}
+        <Link to={`/actors/${actor.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
         </Link>
-      </CardContent>
+      </CardActions>
     </Card>
   );
 }
