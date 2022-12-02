@@ -19,7 +19,6 @@ const TopRatedMoviePage = (props) => {
 
   const favourites = movies.filter(m => m.favourite)
   localStorage.setItem('favourites', JSON.stringify(favourites))
-  const addToFavourites = (movieId) => true 
 
 
   return (

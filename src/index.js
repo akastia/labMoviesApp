@@ -6,7 +6,6 @@ import MovieDetailsPage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
 import MovieUpcomingPage from "./pages/movieUpcomingPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
-// import {Link} from 'react-router-dom'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -19,7 +18,6 @@ import TopMoviesPage from "./pages/topMoviesPage";
 import NowPlayingMoviePage from "./pages/playingnowPage";
 import ActorsPage from "./pages/movieActorPage";
 import ActorDetailsPage from "./pages/movieActorDetailPage";
-import FavouriteActorsPage from "./pages/favourtieActorPage";
 import TvShowPage from "./pages/TvPage";
 import TvShowDetailsPage from "./pages/TvDetailPage";
 import TopTvPage from "./pages/topRatedTvPage";
@@ -56,7 +54,6 @@ const App = () => {
                 <Route path="/movies/now_playing" element={<NowPlayingMoviePage/>} />
                 <Route path="/actors/" element={ <ActorsPage /> } />
                 <Route path="/actors/:id" element={ <ActorDetailsPage /> } />
-                <Route path="/actors/favourites" element={ <FavouriteActorsPage /> } />
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
                 <Route path="/reviews/:id" element={ <MovieReviewPage /> } /> 
                 <Route path="/tv_shows/" element={ <TvShowPage /> } />

@@ -3,7 +3,6 @@ import { getTvShows } from "../api/tmdb-api";
 import PageTemplate from '../components/templateTvShowList';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-// import AddToFavouritesIcon from '../components/cardIcons/addActorFavourites';
 
 const TvShowPage = (props) => {
 
@@ -18,10 +17,7 @@ const TvShowPage = (props) => {
   }  
   const tvs = data.results;
 
-  // // Redundant, but necessary to avoid app crashing.
-  // const favourites = actors.filter(a => a.favourite)
-  // localStorage.setItem('favourites', JSON.stringify(favourites))
-  // const addToFavourites = (actorId) => true 
+ 
 
   return (
     <PageTemplate
