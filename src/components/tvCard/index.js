@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 
 export default function TvCard({ tv, action}) {
   
-  
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -36,7 +35,7 @@ export default function TvCard({ tv, action}) {
       />
       <CardContent>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={9}>
               <Typography variant="h6" component="p">
                 <CalendarIcon fontSize="small" />
                 {tv.first_air_date}
