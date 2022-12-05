@@ -22,10 +22,6 @@ Name: Mary Akastia Christo
 + added a filter the movies
 + drowdown menu in the site header
 
-## Setup requirements.
-
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
-
 ## TMDB endpoints.
 
 + /movie/top_rated - list of top rated movies.
@@ -97,7 +93,4 @@ This shows the storybook
 + /tv/:id - shows details about a particular tv shows
 + /tv/top_tv - displays a list of top rated tv shows
 + /tv/airing_today - displays a list of tv shows that are airing today. 
-
-
-[If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
 
