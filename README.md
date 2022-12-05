@@ -19,7 +19,7 @@ Name: Mary Akastia Christo
 
 ### New Features.
 
-+ added a filter the movies
++ added a filter for the tv show
 + drowdown menu in the site header
 
 ## TMDB endpoints.
