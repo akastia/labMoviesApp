@@ -5,8 +5,6 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
 
 
@@ -21,7 +19,7 @@ const root = {
 
 const chip = { margin: 0.5 };
 
-const TvShowDetails = ({ tv }) => { 
+const TvDetails = ({ tv }) => { 
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   
@@ -30,8 +28,8 @@ const TvShowDetails = ({ tv }) => {
       <Typography variant="h6" component="p">
         Overview
       </Typography>
-
-      <Typography variant="h6" component="p">
+    
+      <Typography variant="h7" component="ul">
         {tv.overview}
       </Typography>
 
@@ -114,4 +112,4 @@ const TvShowDetails = ({ tv }) => {
   );
 };
 
-export default  TvShowDetails ;
+export default TvDetails ;

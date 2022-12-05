@@ -185,9 +185,9 @@ export const getTvShows = () => {
 };
 
 
-export const getTvShow = (queryKey) => {
-  // console.log(args)
-  const [, idPart] = queryKey;
+export const getTvShow = (args) => {
+  console.log(args)
+  const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
     `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
