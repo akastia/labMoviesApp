@@ -1,91 +1,102 @@
-# moviesapp-ci-2021
+# Web App Dev 2 - Assignment 1 - ReactJS app.
+
+Name: Mary Akastia Christo
+
+## Overview.
+
+### New Pages.
+
++ List of Upcoming movies - added to get a playlist to add
++ Added a Must Watch page, which where added in the Upcoming movies page. 
++ Top Rated Movies Page
++ Playing Now Movies Page
++ List of Actors.
+    + Actors details page
++ List of Tv Shows.
+    + Tv shows details
++ Top Rated Tv Shows page
++ Airing Now Tv page
+
+### New Features.
+
++ added a filter the movies
++ drowdown menu in the site header
+
+## Setup requirements.
+
+[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+
+## TMDB endpoints.
+
++ /movie/top_rated - list of top rated movies.
++ /movie/now_playing - list of movies that are playing now.
++ /person/popular - A list of popular actors.
++ /person/{person_id} - A list of details of the actor.
++/person/{person_id}/images - A list of images of the actor.
++ /tv/popular - A list of popular tv shows. 
++ /tv/{tv_id} - details of tv shows.
++ /tv/{tv_id}/images - A list of images of the tv shows.
++ /genre/tv/list - A list of genres for the tv show.
++ /tv/top_rated - list of top rated tv shows
++ /tv/airing_today - list of tv shows that are airing today. 
+
+## App Design.
+
+### Component catalogue.
+
+![](./images/storybook.png)
+
+### UI Design.
 
 
+![ ](./images/must_watch.png)
 
-## Getting started
+>Shows the added playlist as must watch as being added in the upcoming page.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+![ ](./images/upcoming.png)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+>Shows the upcoming movies, added the playlist icon. When clicking on the icon it will show.
 
-## Add your files
+![ ](./images/playing_now.png)
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+>Shows a list of movies that are playing now.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/oconnordiarmuid/moviesapp-ci-2021.git
-git branch -M main
-git push -uf origin main
-```
+![ ](./images/actors.png)
 
-## Integrate with your tools
+> Shows a list of actors
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/integrations/)
+![ ](./images/actors_details.png)
 
-## Collaborate with your team
+>Shows detailed information on the actor.
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+![ ](./images/tvshows.png)
 
-## Test and Deploy
+>Shows a list of tv shows.
 
-Use the built-in continuous integration in GitLab.
+![ ](./images/tv_details.png)
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://docs.gitlab.com/ee/user/clusters/agent/)
+>Shows detailed information on the tv shows.
 
-***
+![ ](./images/top_tv.png)
 
-# Editing this README
+> Shows a list of top rated tv shows.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:66f52974c694a0a5196c76dfd303a95f?https://www.makeareadme.com/) for this template.
+![ ](./images/airing.png)
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+>Shows a list of tv shows that are airing now.
 
-## Name
-Choose a self-explaining name for your project.
+### Routing.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
++ /movies/paylist - displays a list of must watch movies that chosen from upcoming
++ /movies/top_movies - displays a list of top rated movies
++ /movies/now_playing - displays a list of movies that are playing now
++ /actors - displays a list of popular actors.
++ /actors/:id - shows details about a particular actor
++ /tv - displays a list of tv shows 
++ /tv/:id - shows details about a particular tv shows
++ /tv/top_tv - displays a list of top rated tv shows
++ /tv/airing_today - displays a list of tv shows that are airing today. 
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+[If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
 
