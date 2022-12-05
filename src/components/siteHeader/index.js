@@ -88,11 +88,10 @@ const SiteHeader = ({ history }) => {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
-            Mary's App
+            Movie App
           </Typography>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            All you ever wanted to know about <br></br>
-            Movies, Actors and Tv Shows!
+            All you ever wanted to know about Movies!
           </Typography>
             {isMobile ? (
               <>

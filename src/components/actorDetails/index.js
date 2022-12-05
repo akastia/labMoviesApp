@@ -29,8 +29,7 @@ const chip = { margin: 0.5 };
 const ActorDetails = ({ actor }) => { 
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  (actor.gender === 1) ? actor.gender = "  Female" : actor.gender = "  Male" 
-    
+  
   return (
     <>
 
