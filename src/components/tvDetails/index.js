@@ -70,8 +70,8 @@ const TvShowDetails = ({ tv }) => {
           <Chip label="Production Countries" sx={chip} color="primary" />
         </li>
         {tv.production_countries.map((c) => (
-          <li key={c.name}>
-            <Chip label={c.name} sx={chip} />
+          <li key={c}>
+            <Chip label={c} sx={chip} />
           </li>
         ))}
       </Paper>

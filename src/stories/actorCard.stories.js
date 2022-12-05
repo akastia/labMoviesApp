@@ -3,7 +3,7 @@ import ActorCard from "../components/actorCard";
 import SampleActor from "./sampleActorData";
 import { MemoryRouter } from "react-router";
 import ActorsContextProvider from "../contexts/actorsContext";
-import AddToFavouritesIcon from "../components/cardIcons/addActorFavourites";
+import ActorFavouritesIcon from "../components/cardIcons/addActorFavourites";
 
 
 export default {
@@ -12,6 +12,7 @@ export default {
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
     (Story) => <ActorsContextProvider>{Story()}</ActorsContextProvider>,
+  
   ],
 };
 
@@ -19,10 +20,10 @@ export const Basic = () => {
   return (
     <ActorCard
       movie={SampleActor}
-      action={(actor) => <AddToFavouritesIcon actor={actor} />}
-    //   taging={(movie) => <AddToPlaylistIcon movie={movie}/>}
-    />
-  );
+      action={(actor) => <ActorFavouritesIcon actor={actor} />}
+      
+      />
+      )
 };
 Basic.storyName = "Default";
 
@@ -31,7 +32,7 @@ export const Exceptional = () => {
   return (
     <ActorCard
       actor={sampleNoProfile}
-      action={(actor) => <AddToFavouritesIcon actor={actor} />}
+      action={(actor) => <ActorFavouritesIcon actor={actor} />}
     //   taging={(movie) => <AddToPlaylistIcon movie={movie}/>}
     />
   );
