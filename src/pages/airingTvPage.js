@@ -1,12 +1,12 @@
 import React from "react";
-import { getTopTvShows } from "../api/tmdb-api";
+import { getAirTvShows } from "../api/tmdb-api";
 import PageTemplate from '../components/templateTvShowList';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 
 const AiringTvPage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('tvshows', getTopTvShows)
+  const {  data, error, isLoading, isError }  = useQuery('tvshows', getAirTvShows)
 
   if (isLoading) {
     return <Spinner />

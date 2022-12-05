@@ -3,8 +3,8 @@ import ActorList from "../components/actorList";
 import SampleActor from "./sampleActorData";
 import { MemoryRouter } from "react-router";
 import ActorsContextProvider from "../contexts/actorsContext";
-import Grid from "@material-ui/core/Grid";
-import ActorFavouritesIcon from "../components/cardIcons/addActorFavourites";
+import Grid from "@mui/material/Grid";
+import ActorFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 export default {
   title: "Home Page/ActorList",

@@ -3,7 +3,7 @@ import ActorCard from "../components/actorCard";
 import SampleActor from "./sampleActorData";
 import { MemoryRouter } from "react-router";
 import ActorsContextProvider from "../contexts/actorsContext";
-import AddToFavouritesIcon from "../components/cardIcons/addActorFavourites";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 
 export default {
