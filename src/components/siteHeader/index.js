@@ -44,7 +44,7 @@ const SiteHeader = ({ history }) => {
 
   const actorOptions = [
     { label: "Actors", path: "/actors" },
-    ];
+    { label: "Favourite Actors", path: "/actors/favourites" },];
 
   const menuOptions = [
     { label: "Home", path: "/" },

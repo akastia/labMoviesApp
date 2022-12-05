@@ -18,6 +18,10 @@ const TopTvPage = (props) => {
   }  
   const tvs = data.results;
 
+  // // Redundant, but necessary to avoid app crashing.
+  // const favourites = actors.filter(a => a.favourite)
+  // localStorage.setItem('favourites', JSON.stringify(favourites))
+  // const addToFavourites = (actorId) => true 
 
   return (
     <PageTemplate
