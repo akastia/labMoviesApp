@@ -45,6 +45,7 @@ Name: Mary Akastia Christo
 ### Component catalogue.
 
 ![](./images/storybook.png)
+This shows the storybook
 
 ### UI Design.
 
